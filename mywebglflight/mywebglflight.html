@@ -5,7 +5,7 @@
 <head>
 <title>mywebglflight sim</title>
 <link id="ico" rel="shortcut icon" href="mywebglflight.ico">
-<!--link rel="shortcut icon" href="http://sites.google.com/site/chungkn1400/mywebglflight/mywebglflight.ico"-->
+<link rel="shortcut icon" href="http://sites.google.com/site/chungkn1400/mywebglflight/mywebglflight.ico">
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 </head>
 <body   onunload="close();"  bgcolor="#C0C0FF" onKeyUp="keyup(event);" onKeyDown="keydown(event);">
@@ -69,7 +69,7 @@ apikey='AIzaSyApcL5vUfN5urgDmXsHlRbZQ_e3y_4skcU';
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&language=en" type="text/javascript" ></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<!--script type="text/javascript" src="https://b3d8783ddc02a86af1ce60266a06c20f1a961f99.googledrive.com/host/0B6GM9ay7ImZLOXpiUkx5bFhacXc/jscompile_chung.js"></script-->
+<script type="text/javascript" src="https://b3d8783ddc02a86af1ce60266a06c20f1a961f99.googledrive.com/host/0B6GM9ay7ImZLOXpiUkx5bFhacXc/jscompile_chung.js"></script>
 <script type="text/javascript" src="jscompile_chung.js"></script>
 <script type="text/javascript" src='https://code.responsivevoice.org/responsivevoice.js'></script>
 <script type="text/javascript" >
@@ -106,15 +106,15 @@ if (combotext=="le caire"){lat=30.04441959;lng=31.23571160;o1=36.3920;}
 if (combotext=="washington"){lat=38.8850399;lng=-77.08054296;o1=36.3920;}
 if (combotext=="tajmahal"){lat=27.17015;lng=78.002155;o1=36.3920;}
 }
-//google.load("search", "1");
-//google.load("jquery", "1.4.2");
-//google.load("jqueryui", "1.7.2");
+google.load("search", "1");
+google.load("jquery", "1.4.2");
+google.load("jqueryui", "1.7.2");
 var auxvar=null,auxtext="";
 if (google.loader.ClientLocation) {
     lat = google.loader.ClientLocation.latitude;
     lng = google.loader.ClientLocation.longitude;
 	city= google.loader.ClientLocation.address.city;
-	//alert(city);
+	alert(city);
 }
 var MERCATOR_RANGE = 256;
 function degreesToRadians(deg) {
@@ -153,24 +153,24 @@ worldx=pointx*Math.pow(2,zoom);
 worldy=pointy*Math.pow(2,zoom);
 }
 function getmap(zoom,lat,lng,size,type0,scale){
-/*var type=type0;
+var type=type0;
 if(type=="jpg"){type="jpg-baseline";}
 var mapstyle="&style=feature:road%7Cvisibility:off&style=element:labels%7Cvisibility:off&style=element:geometry.stroke%7Cvisibility:off";
 return "https://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lng+"&zoom="+zoom+"&scale="+scale+"&size="+size+"x"+size+"&maptype=satellite&format="+type+mapstyle+apikey;
-*/
+
 var sizex=Math.floor(scale*size);
 var zoom1=zoom+1;
 return "http://dev.virtualearth.net/REST/v1/Imagery/Map/aerial/"+lat+","+lng+"/"+zoom1+"?mapSize="+sizex+","+sizex+"&format=jpeg"+"&key=%20Aq0npnXsrnwL9eY3rCUQsJZJJedr8Za9hIH-XsWnppaizf92DYjKS1syE9K3HqVr"
 } 
 function getterrain(zoom,lat,lng,size,type0,scale){
-//var type=type0;
-//if(type=="jpg"){type="jpg-baseline";}
-////var mapstyle="&style=element:all%7Cvisibility:off";
-////mapstyle+="&style=element:geometry.fill%7Cvisibility:on";
-////mapstyle+="&style=feature:road%7Cvisibility:off";
-/*var mapstyle="&style=feature:road%7Cvisibility:off&style=element:labels%7Cvisibility:off&style=element:geometry.stroke%7Cvisibility:off";
+var type=type0;
+if(type=="jpg"){type="jpg-baseline";}
+var mapstyle="&style=element:all%7Cvisibility:off";
+mapstyle+="&style=element:geometry.fill%7Cvisibility:on";
+mapstyle+="&style=feature:road%7Cvisibility:off";
+var mapstyle="&style=feature:road%7Cvisibility:off&style=element:labels%7Cvisibility:off&style=element:geometry.stroke%7Cvisibility:off";
 return "https://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lng+"&zoom="+zoom+"&scale="+scale+"&size="+size+"x"+size+"&maptype=terrain&format="+type+mapstyle+apikey;
-*/
+
 var sizex=Math.floor(scale*size);
 var zoom1=zoom+1;
 return "http://dev.virtualearth.net/REST/v1/Imagery/Map/road/"+lat+","+lng+"/"+zoom1+"?mapSize="+sizex+","+sizex+"&format=jpeg&st=me|lv:0"+"&key=%20Aq0npnXsrnwL9eY3rCUQsJZJJedr8Za9hIH-XsWnppaizf92DYjKS1syE9K3HqVr"
@@ -192,7 +192,7 @@ return Date.now();
 }
 function submsg(text){
  document.getElementById("msg").value=text;
- //document.getElementById("divmsg").innerHTML;
+ document.getElementById("divmsg").innerHTML;
 }
 var head = document.getElementsByTagName('head')[0];
 var tjsload=0,jsfilelist=[],njsfile=0,jslist=[],tloading=[];
@@ -203,7 +203,7 @@ var js=jslist[njsfile];
 js.type = "text/javascript";
 js.src = folder+jsfilepath;
 js.async=false;
-//js.onreadystatechange = jscallback;
+js.onreadystatechange = jscallback;
 tjsload+=1;jsfilelist[njsfile]=jsfilepath;
 var i=njsfile;
 tloading[i]=1;
@@ -215,12 +215,12 @@ njsfile+=1;
 head.appendChild(js);
 var t=timer()+30,dt=0;
 while(timer()<t){dt=0;}
-/*if(jsfilepath.indexOf("objtxt.js")>=0 ||
+if(jsfilepath.indexOf("objtxt.js")>=0 ||
    jsfilepath.indexOf("oog.js")>=0 ||
    jsfilepath.indexOf("wav.js")>=0 ||
    jsfilepath.indexOf("mp3.js")>=0 ||
    jsfilepath.indexOf("jpg.js")>=0 ||
-   jsfilepath.indexOf("png.js")>=0){head.removeChild(js);}*/
+   jsfilepath.indexOf("png.js")>=0){head.removeChild(js);}
 }
 function msgloading(){
   for(var i=0;i<njsfile;i++){
@@ -239,7 +239,7 @@ jsfile=jsfilelist[i];
 		jsfile.indexOf("png.js")>=0){
       if(jsfile.substr(jsfile.length-3,3)==".js"){
 	    jsfile=jsfile.substr(0,jsfile.length-3);
-		//try{eval(jsfile+"=null;");}catch(e){err+="/"+jsfile;}
+		try{eval(jsfile+"=null;");}catch(e){err+="/"+jsfile;}
 		try{head.removeChild(jslist[i]);}catch(e){err+="/js:"+jsfile;}
 		msg+="/"+jsfile;
 		};}
@@ -260,8 +260,8 @@ function deletejsfilelist(){
 		msg+="/"+jsfile;
 		};}
   };
-  //alert(msg);
-  //alert("err="+err);
+  alert(msg);
+  alert("err="+err);
 }
 function addjavascripttext(jstext){
 submsg("addjavatext("+jstext+")");
@@ -403,8 +403,8 @@ function getlatlong(responseText){
 			data=respdata.substr(i+5,40);
 			i=data.indexOf(':');j=data.indexOf('}');
 			lng=eval(data.substring(i+1,j));
-			//alert(respdata.substr(200,400));
-			//alert(lat+"/"+lng);
+			alert(respdata.substr(200,400));
+			alert(lat+"/"+lng);
 			weatherurl="http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lng;
 			setTimeout("httpGet(weatherurl,getweather);",70);
 }			
@@ -414,8 +414,8 @@ function getweather(responseText){
 			var data=weatherdata.substr(i+10,100);
 			i=data.indexOf(':');j=data.indexOf('}');
 			wclouds=eval(data.substring(i+1,j));
-			//alert(weatherdata.substr(200,400));
-			//alert("wclouds="+wclouds);
+			alert(weatherdata.substr(200,400));
+			alert("wclouds="+wclouds);
 }	
 try{		
 //httpGet("http://api.hostip.info/get_json.php?position=true",getlatlong);
@@ -449,11 +449,11 @@ function testjoystick(){
 function b(i){if(button[i]==1){
   timebutt[i]=tframe+150;button[i]=0;return 1;
 }else{return 0;};}
-//var irnd=0,nrnd=50000,random=new Array(nrnd);
-//for(var i=0;i<nrnd;i++){random[i]=Math.random();}
+var irnd=0,nrnd=50000,random=new Array(nrnd);
+for(var i=0;i<nrnd;i++){random[i]=Math.random();}
 function Mathrandom(){return Math.random();
-//  irnd+=1;if(irnd>=nrnd){irnd=0;};
-//  return random[irnd];
+  irnd+=1;if(irnd>=nrnd){irnd=0;};
+  return random[irnd];
 }
 var seedrand=parseInt(new Date().getTime());
 Math.seedrandom(seedrand);
@@ -468,11 +468,11 @@ source.request.responseType = 'arraybuffer';
 source.request.onload = function() {
 var audioData = source.request.response;
 audioctx.decodeAudioData(audioData, function(buffer) {
-//myBuffer = buffer;
+myBuffer = buffer;
 songlength = buffer.duration;
 source.buffer = buffer;
 source.playbackRate.value = 1.0;
-//source.connect(audioctx.destination);
+source.connect(audioctx.destination);
 source.loopStart=0.5;
 source.loopEnd=songlength-0.5;
 source.gainNode = audioctx.createGain();
@@ -488,11 +488,11 @@ source.request.send();
 function loadsound64(source,data){
 var audioData = Base64Binary.decodeArrayBuffer(data.split(",")[1]);
 audioctx.decodeAudioData(audioData, function(buffer) {
-//myBuffer = buffer;
+myBuffer = buffer;
 songlength = buffer.duration;
 source.buffer = buffer;
 source.playbackRate.value = 1.0;
-//source.connect(audioctx.destination);
+source.connect(audioctx.destination);
 source.loopStart=0.5;
 source.loopEnd=songlength-0.5;
 source.gainNode = audioctx.createGain();
@@ -520,8 +520,8 @@ function playsound(source) {if(!source.gainNode){return;}
 }
 var wav="mp3",browser="";
 if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){wav="ogg";browser="firefox";};
-//if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1){wav="wav";};
-//alert(navigator.userAgent+" "+wav);
+if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1){wav="wav";};
+alert(navigator.userAgent+" "+wav);
 var audiosrc="";
 var myaudio = audioctx.createBufferSource();
 myaudio.volume=0;
